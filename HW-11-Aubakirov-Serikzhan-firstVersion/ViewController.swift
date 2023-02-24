@@ -118,7 +118,7 @@ class ViewController: UIViewController {
         button.clipsToBounds = true
         button.backgroundColor = .clear
         button.setTitle("Sign up", for: .normal)
-        button.setTitleColor(.purple, for: .normal)
+        button.setTitleColor(.cyan, for: .normal)
         button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -130,6 +130,22 @@ class ViewController: UIViewController {
         backgroundImageView.contentMode = .scaleToFill
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         return backgroundImageView
+    }()
+    
+    private lazy var leftConnectWitchLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.layer.cornerRadius = 20
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var rightConnectWitchLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.layer.cornerRadius = 20
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     // MARK: Lifecycle
@@ -152,6 +168,8 @@ class ViewController: UIViewController {
         view.addSubview(facebookButton)
         view.addSubview(twitterButton)
         view.addSubview(signUpButton)
+        view.addSubview(leftConnectWitchLabel)
+        view.addSubview(rightConnectWitchLabel)
     }
     
     func setupConstaints() {
@@ -165,6 +183,16 @@ class ViewController: UIViewController {
             connectWithSocialNetLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
             connectWithSocialNetLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
             connectWithSocialNetLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50),
+            
+            leftConnectWitchLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -100),
+            leftConnectWitchLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            leftConnectWitchLabel.heightAnchor.constraint(equalToConstant: 1.5),
+            leftConnectWitchLabel.widthAnchor.constraint(equalToConstant: 70),
+
+            rightConnectWitchLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 100),
+            rightConnectWitchLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            rightConnectWitchLabel.heightAnchor.constraint(equalToConstant: 1.5),
+            rightConnectWitchLabel.widthAnchor.constraint(equalToConstant: 70),
             
             dontHaveAccountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -50),
             dontHaveAccountLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250),
